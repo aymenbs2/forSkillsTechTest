@@ -4,6 +4,7 @@ package com.forSkillsTechTest.movies.ui.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.forSkillsTechTest.movies.domain.model.Cast
 import com.forSkillsTechTest.movies.domain.model.Movie
 import com.forSkillsTechTest.movies.domain.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,10 +18,17 @@ class MovieViewModel@Inject constructor(val repository: MovieRepository) : ViewM
 
     private val _popularMovies = MutableStateFlow<List<Movie>>(emptyList())
     val popularMovies: StateFlow<List<Movie>> = _popularMovies
+    private val _movieCast = MutableStateFlow<List<Cast>>(emptyList())
+    val movieCast: StateFlow<List<Cast>> = _movieCast
 
     fun getPopularMovies() {
         viewModelScope.launch {
             _popularMovies.value = repository.getPopularMovies()
+        }
+    }
+    fun getMovieCast(movieId:Int) {
+        viewModelScope.launch {
+            _movieCast.value = repository.getMovieCast(movieId)
         }
     }
 }
