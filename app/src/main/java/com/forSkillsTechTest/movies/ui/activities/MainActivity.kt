@@ -10,14 +10,13 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
+
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModel
+
+import com.forSkillsTechTest.movies.ui.organism.MovieListScreen
 import com.forSkillsTechTest.movies.ui.theme.MoviesTheme
 import com.forSkillsTechTest.movies.ui.viewModel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -27,16 +26,7 @@ class MainActivity : ComponentActivity() {
         viewModel.getPopularMovies()
 
         setContent {
-          val  sata = viewModel.popularMovies.collectAsState()
-            MoviesTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            MovieListScreen(viewModel)
         }
     }
 }

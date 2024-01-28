@@ -24,7 +24,7 @@ object AppModule {
     @Singleton
     fun provideMovieApiService(): MovieApiService {
         return Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(BuildConfig.API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder()
                 .addInterceptor(AuthInterceptor())
@@ -39,7 +39,7 @@ object AppModule {
         override fun intercept(chain: Interceptor.Chain): Response {
             val originalRequest: Request = chain.request()
             val newRequest: Request = originalRequest.newBuilder()
-                .header("Authorization", "Bearer ${BuildConfig.TMDB_API_KEY}")
+                .addHeader("Authorization", "Bearer ${BuildConfig.TMDB_API_KEY}")
                 .build()
 
             return chain.proceed(newRequest)
