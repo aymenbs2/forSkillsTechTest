@@ -1,5 +1,6 @@
 package com.forSkillsTechTest.movies.ui.organism
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -31,7 +32,7 @@ fun MovieListScreen(movieViewModel: MovieViewModel = viewModel()) {
         },
         content = {padding->
 
-            MovieListContent(modifier=Modifier.padding(padding),movies = movies.value)
+            MovieListContent(modifier=Modifier.padding(padding).background(Gray),movies = movies.value)
         }
     )
 }
