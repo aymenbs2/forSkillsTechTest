@@ -20,11 +20,8 @@ import com.forSkillsTechTest.movies.R
 import com.forSkillsTechTest.movies.domain.model.Movie
 import com.forSkillsTechTest.movies.ui.molecule.MovieItem
 import com.forSkillsTechTest.movies.ui.navigation.NavigationItem
-import com.forSkillsTechTest.movies.ui.navigation.Screen
 import com.forSkillsTechTest.movies.ui.theme.Gray
 import com.forSkillsTechTest.movies.ui.viewModel.MovieViewModel
-import com.forSkillsTechTest.movies.util.Constants
-import com.forSkillsTechTest.movies.util.Constants.Companion.MOVIE_KEY
 import com.forSkillsTechTest.movies.util.JsonUtils
 
 @Composable

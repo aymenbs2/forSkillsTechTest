@@ -7,16 +7,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowForward
-import androidx.compose.material.icons.rounded.Star
 
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
+
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
@@ -27,7 +23,6 @@ import com.forSkillsTechTest.movies.BuildConfig
 import com.forSkillsTechTest.movies.R
 import com.forSkillsTechTest.movies.domain.model.Movie
 import com.forSkillsTechTest.movies.ui.atom.Rating
-import com.forSkillsTechTest.movies.ui.theme.Gold
 
 
 @Composable
@@ -37,7 +32,7 @@ fun MovieItem(
 ) {
     Card(
         modifier = Modifier
-            .padding(4.dp)
+            .padding(2.dp)
             .height(150.dp)
             .clickable(onClick = onClick),
         elevation = 1.dp,
