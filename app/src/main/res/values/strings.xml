@@ -3,4 +3,8 @@
     <string name="popular_movies">Popular movies</string>
     <string name="synopsis">Synopsis</string>
     <string name="cast">Cast</string>
+    <string name="search_bar">Search Icon</string>
+    <string name="search">Search</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
 </resources>
