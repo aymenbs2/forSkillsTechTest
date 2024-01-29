@@ -5,12 +5,11 @@ import androidx.compose.foundation.layout.*
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -30,15 +29,9 @@ import com.forSkillsTechTest.movies.ui.viewModel.MovieViewModel
 fun MovieDetailsScreen(navController: NavHostController, movie: Movie) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                elevation = 0.dp,
-                title = {
-                    NavigateBack(stringResource(id = R.string.popular_movies)) {
-                        navController.popBackStack()
-                    }
-                },
-                backgroundColor = Color.White
-            )
+            NavigateBack(stringResource(id = R.string.popular_movies)) {
+                navController.popBackStack()
+            }
         },
         content = { padding ->
 
@@ -53,11 +46,11 @@ fun MovieDetailsScreen(navController: NavHostController, movie: Movie) {
 
 @Composable
 fun NavigateBack(text: String, onClick: () -> Boolean) {
-    Row(modifier = Modifier.clickable {
+    Row(modifier = Modifier.padding(top = 30.dp).clickable {
         onClick()
-    }) {
+    }, horizontalArrangement = Arrangement.Start, verticalAlignment = Alignment.CenterVertically) {
         Image(
-            modifier = Modifier.size(25.dp),
+            modifier = Modifier.size(25.dp).align(Alignment.CenterVertically),
             painter = painterResource(id = R.drawable.ic_back_arrow_icon),
             colorFilter = ColorFilter.tint(Blue),
             contentDescription = null
